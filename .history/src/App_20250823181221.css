@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.maincard:hover {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 7px ;
+}

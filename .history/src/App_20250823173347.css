@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.iconButton {
+transition: all 0.9s !important;
+}
+.iconButton :hover {
+}

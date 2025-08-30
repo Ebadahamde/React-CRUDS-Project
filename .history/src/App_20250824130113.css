@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.maincard:hover {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 7px 7px 0px rgba(91, 101, 104, 0.626);
+}
+@font-face {
+  font-family: syne;
+  src: url(/public/);
+}

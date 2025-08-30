@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.iconButton {
+transition: all 0.9s !important;
+}
+
+.iconButton :hover {
+  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.5) ;
+}

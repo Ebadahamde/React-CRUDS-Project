@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.maincard:hover {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: all 0.2s ease;
+  box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.1);
+}
+@font-face {
+  font-family: syne;
+  src: url(/public/fonts/Syne-ExtraBold.ttf);
+  font-weight: 900;
+}
+@font-face {
+  font-family: syne;
+  src: url(/public/fonts/Syne-SemiBold.ttf);
+  font-weight: 800;
+}
+@font-face {
+  font-family: syne;
+  src: url(/public/fonts/Syne-Bold.ttf);
+  font-weight: 700;
+}
+@font-face {
+  font-family: syne;
+  src: url(/public/fonts/Syne-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: syne;
+  src: url(/public/fonts/Syne-Regular.ttf);
+  font-weight: 300;
+}

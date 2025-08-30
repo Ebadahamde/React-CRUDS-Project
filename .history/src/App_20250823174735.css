@@ -1,0 +1,7 @@
+.App {
+  text-align: center;
+}
+
+.maincard :hover {
+  margin: 10px;
+}

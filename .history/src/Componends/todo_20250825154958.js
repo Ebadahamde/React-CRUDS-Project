@@ -1,0 +1,135 @@
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+// ICONS
+import CheckIcon from "@mui/icons-material/Check";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
+// CONTEXT
+import { MyToDoContext } from "../contexts/Todoscontext";
+import { useContext  ,useState} from "react";
+// dialog imports
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
+export default function Todo({ todo }) {
+  const { Todos, settodos } = useContext(MyToDoContext);
+  const [ShowDialog, setShowDialog] =useState(false)
+   
+  function HnadelCheckClick() {
+    const updateddoto = Todos.map((x) => {
+      if (x.id === todo.id) {
+        x.iscompleted = !x.iscompleted;
+      }
+      return x;
+    });
+    settodos(updateddoto);
+  }
+  
+  return (
+    <>
+      <Dialog
+        open={ShowDialog}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button>Disagree</Button>
+          <Button autoFocus>Agree</Button>
+        </DialogActions>
+      </Dialog>
+      <Card sx={{ marginTop: "30px", background: "#a9a9a935", minWidth: 275 }}>
+        <CardContent className="maincard">
+          <Grid container spacing={2}>
+            <Grid size={8}>
+              <p
+                style={{
+                  color: "#ffffff",
+                  paddingLeft: "30PX",
+                  fontFamily: "syne",
+                  fontWeight: "700",
+                  fontSize: "24px",
+                  textAlign: "left",
+                }}
+              >
+                {todo.title}{" "}
+              </p>
+              <p
+                style={{
+                  color: "#ffffff",
+                  paddingLeft: "30PX",
+                  fontFamily: "syne",
+                  fontWeight: "500",
+                  fontSize: "18px",
+                  textAlign: "left",
+                }}
+              >
+                {todo.details}{" "}
+              </p>
+            </Grid>
+            <Grid
+              xs={4}
+              display="flex"
+              justifyContent="space-around"
+              alignItems="center"
+              gap={4}
+            >
+              <IconButton
+                className="iconButton"
+                aria-label="delete"
+                style={{
+                  color: todo.iscompleted ? "#ffffff" : "#88ff00ff",
+                  background: todo.iscompleted ? "#88ff003e" : "#ffffff10",
+                  border: todo.iscompleted
+                    ? "solid #88ff003e 2px"
+                    : "solid #88ff00ff 2px",
+                }}
+                onClick={HnadelCheckClick}
+              >
+                <CheckIcon />
+              </IconButton>
+
+              <IconButton
+                className="iconButton"
+                aria-label="delete"
+                style={{
+                  color: "#1769aa",
+                  border: "solid #1769aa 2px",
+                }}
+              >
+                <ModeEditOutlineOutlinedIcon />
+              </IconButton>
+
+              <IconButton
+                className="iconButton"
+                aria-label="delete"
+                style={{
+                  color: "#b23c17",
+                  // background: "white",
+                  border: "solid #b23c17 2px",
+                }}
+                onClick={HandelShowDialog}
+              >
+                <DeleteOutlineOutlinedIcon />
+              </IconButton>
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
+    </>
+  );
+}
